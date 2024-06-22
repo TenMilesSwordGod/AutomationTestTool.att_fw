@@ -60,7 +60,7 @@ class ATT_Prepare(AttLogger):
                 config_db_instance.create_table(table_name=ATTCLIConfig.ATT_SYSTEM_TABLE,
                                                 columns=ATTCLIConfig.ATT_SYSTEM_TABLE_COLUMNS)
 
-            # create a tmp table for current 
+            # create a tmp table for current
             config_db_instance.create_table(table_name=ATTCLIConfig.DEFAULT_TESTLIB_CONFIG_TABLE,
                                             columns=ATTCLIConfig.TESTLIB_TABLE_COLUMNS)
 
@@ -79,8 +79,8 @@ class ATT_Prepare(AttLogger):
                                                  values=(self.campaign_id, str(self.optional_parameter),
                                                          self.current_time, None, None, None, None, None, None))
             else:
-                if res:= config_db_instance.select_records(table_name=ATTCLIConfig.CAMPAIGN_TABLE,
-                                                        condition="campaign_id='{}'".format(self.campaign_id)):
+                if res := config_db_instance.select_records(table_name=ATTCLIConfig.CAMPAIGN_TABLE,
+                                                            condition="campaign_id='{}'".format(self.campaign_id)):
                     self.logger.info("found existed campaign id: {}".format(self.campaign_id))
                     self.logger.debug(res)
                 else:
@@ -90,7 +90,7 @@ class ATT_Prepare(AttLogger):
                                                      values=(self.campaign_id, str(self.optional_parameter),
                                                              self.current_time, None, None, None, None, None, None))
             # load system global parameters
-            # like [if configurate the adb serial, 
+            # like [if configurate the adb serial,
             #       serial should be a common argument for testlib and can be used by self,
             #       and these arguments also used by self.arguments.serial
             #       for example in testlib steps:
@@ -111,11 +111,11 @@ class ATT_Prepare(AttLogger):
             self.campaign_id = self.generate_campaign_id()
         self.logger.info("current campaign id: {}".format(self.campaign_id))
         self.cache_sql_setup()
- 
+
 
 if __name__ == "__main__":
     att = ATT_Prepare(test_campaign="LoginTests", optional_parameter={"audio_name": "test.mp3",
                                                                       "audio_path": "/data/media/10",
-                                                                      "dut_ip": "192.168.0.2",},
+                                                                      "dut_ip": "192.168.0.2"},
                       campaign_id="5de29102023eca38b55b3e2cd7622269ce", rerun=True)
     att.start_up()

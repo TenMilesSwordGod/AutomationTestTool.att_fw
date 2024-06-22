@@ -1,4 +1,4 @@
-from typing import Dict, Optional, List
+from typing import Optional, List
 from typing_extensions import Annotated
 
 import typer
@@ -35,9 +35,9 @@ def run(
                            typer.Option('--uuid',
                                         help='It specifies the generated UUID.')] = None,
     hot_boot: Annotated[Optional[bool],
-                         typer.Option('--hot-boot',
-                                      help="will load config from exist att cache db, if false: " +
-                                      "will drop ALL config db and re-generate the config-db")] = False,
+                        typer.Option('--hot-boot',
+                                     help="will load config from exist att cache db, if false: " +
+                                     "will drop ALL config db and re-generate the config-db")] = False,
     rerun: Annotated[Optional[bool],
                      typer.Option('--rerun',
                                   help="rerun by uuid")] = False

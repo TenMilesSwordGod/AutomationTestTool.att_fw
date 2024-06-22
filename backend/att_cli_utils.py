@@ -30,9 +30,9 @@ class CallBackFunctions:
     @staticmethod
     def campaign_name_callback(campaign_name: str):
         if not campaign_name:
-            print(f"[red bold]{"*" * 60} [/red bold]")
+            print(f"[red bold]{'*' * 60} [/red bold]")
             print("[red bold][ATT ERROR]            please input campaign name!!![/red bold]")
-            print(f"[red bold]{"*" * 60} [/red bold]")
+            print(f"[red bold]{'*' * 60} [/red bold]")
             raise typer.Exit(code=1)
 
         return campaign_name
@@ -40,15 +40,15 @@ class CallBackFunctions:
     @staticmethod
     def bench_config_name_callback(bench_config_name: str):
         if bench_config_name != ATTCLIConfig.default_bench_config:
-            if bench_files:= CommsLib.get_folder_files(LocalActions().bench_folder):
+            if bench_files := CommsLib.get_folder_files(LocalActions().bench_folder):
                 for file in bench_files:
-                    if bench_config_name in file:  
+                    if bench_config_name in file:
                         return bench_config_name
                     else:
-                        print(f"[red bold]{"*" * 60} [/red bold]")
+                        print(f"[red bold]{'*' * 60} [/red bold]")
                         print("[red bold][ATT ERROR]recommand bench files: {}, not found bench_file:{}[/red bold]".
                               format(bench_files, f"{bench_config_name}.xml"))
-                        print(f"[red bold]{"*" * 60} [/red bold]")
+                        print(f"[red bold]{'*' * 60} [/red bold]")
                         raise typer.Exit(code=1)
             else:
                 raise typer.Exit(code=1)

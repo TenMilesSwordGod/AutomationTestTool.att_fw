@@ -6,7 +6,6 @@ class ATTCLIConfig:
     ATT_ROOT_PATH = Path().resolve()
     ATT_CACHE_FOLDER = ".att-cache"
 
-
     # ATT DB
     DEFAULT_CACHE_CONFIG_DB = "att_config.db"
     CACHE_DB_PATH = Path(ATT_ROOT_PATH) / Path(ATT_CACHE_FOLDER) / Path(DEFAULT_CACHE_CONFIG_DB)
@@ -21,8 +20,8 @@ class ATTCLIConfig:
 
     CAMPAIGN_TABLE = "campaign"
     CAMPAIGN_TABLE_COLUMNS = "campaign_id TINYTEXT PRIMARY KEY, " + "override_parameter TEXT, " +\
-    "start_time TEXT NOT NULL, " + "stop_time TEXT, " + "total_cases INT, " + "actually_run INT, "+\
-        "pass INT, " + "fail INT, " + "pass_rate FLOAT " 
+                             "start_time TEXT NOT NULL, " + "stop_time TEXT, " + "total_cases INT, " +\
+                             "actually_run INT, " + "pass INT, " + "fail INT, " + "pass_rate FLOAT "
 
     TESTCASE_TABLE = "testcase"
     TESTCASE_TABLE_COLUMNS = "testcase_id TINYTEXT PRIMARY KEY, " + "campaign_id TINYTEXT, " + "result TINYTEXT, " +\
@@ -34,7 +33,7 @@ class ATTCLIConfig:
     # ATT System
     # for system global parameters
     ATT_SYSTEM_TABLE = "att_system_table"
-    ATT_SYSTEM_TABLE_COLUMNS = "attr_name TINYTEXT PRIMARY KEY, " + "attr_value TINYTEXT" 
+    ATT_SYSTEM_TABLE_COLUMNS = "attr_name TINYTEXT PRIMARY KEY, " + "attr_value TINYTEXT"
 
 
 if __name__ == "__main__":
